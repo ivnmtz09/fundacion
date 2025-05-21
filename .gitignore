@@ -1,13 +1,8 @@
-
-# Archivos de configuración y seguridad
-*.env
+__pycache__/
+*.pyc
+*.log
+.idea/
 *.sqlite3
-db.sqlite3
-
-# Archivos de sistema
+*.env
 .DS_Store
 Thumbs.db
-
-# Migraciones si deseas no subirlas
-**/migrations/*.py
-!**/migrations/__init__.py
