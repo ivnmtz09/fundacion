@@ -1,0 +1,22 @@
+# Entorno virtual
+venv/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Archivos de base de datos local
+*.sqlite3
+*.log
+
+# Archivos de configuración sensible
+.env
+
+# Archivos de compilación
+*.egg-info/
+dist/
+build/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
