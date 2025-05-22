@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+from datetime import timedelta
 import sys
 import os
 from pathlib import Path
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     'configs.apps.usuarios',
     ]
 
@@ -150,5 +153,17 @@ REST_FRAMEWORK = {
     ),
 }
 
-
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+# JWT Settings
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+}
+
+SIMPLE_JWT["AUTH_COOKIE"] = "access"
+SIMPLE_JWT["AUTH_COOKIE_HTTP_ONLY"] = True
